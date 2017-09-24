@@ -6,33 +6,68 @@ File Name: 03-function.html
 
 <html>
 
+<head>
+    <style>
+        #container {
+            padding: 20% 0;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+
+        input[type="password"] {
+            padding: 10px;
+            border: solid 1px #dcdcdc;
+            transition: box-shadow 0.3s, border 0.3s;
+        }
+
+        input[type="password"]:focus,
+        input[type="password"].focus {
+            border: solid 1px #707070;
+            box-shadow: 0 0 5px 1px #969696;
+        }
+    </style>
+</head>
+
 <body>
     <center>
-        <input type="password" placeholder="Password" id="pass" />
-        <br />
-        <button type="submit" onclick="testLogin()">Show Flag</button>
-        <br />
-        <br />
-        <span id='flag' />
+        <div id='container'>
+            <h2>
+                Web is pretty cool
+                <br />
+                You get to play with js
+                <br />
+                Sometimes CSS
+            </h2>
+            <input type="password" placeholder="Password" id="pass" />
+            <br />
+            <button type="submit" onclick="testLogin()">Show Flag</button>
+            <br />
+            <br />
+            <span id='f' />
+        </div>
     </center>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
 <script>
-    window.onload = renderFlag;
-
     function testLogin() {
-        let hash = 'b60d8391fadee3760bdaccd8a17daa9d3da70cadb888f5a11e63d3ef64a031f7';
-        console.log(CryptoJS.SHA256('ThisPasswordIsUncrackableBOIIIIII').toString(CryptoJS.enc.Hex))
-        let pass = document.getElementById('pass').value;
-        if (CryptoJS.SHA256(pass).toString(CryptoJS.enc.Hex) === hash)
-            renderFlag();
+        let h = 'b60d8391fadee3760bdaccd8a17daa9d3da70cadb888f5a11e63d3ef64a031f7';
+        let p = document.getElementById('pass').value;
+        if (CryptoJS.SHA256(p).toString(CryptoJS.enc.Hex) === h)
+            t();
         else
-            document.getElementById('flag').innerHTML = 'Incorrect Password';
+            document.getElementById('f').innerHTML = 'Incorrect Password';
     }
 
-    function renderFlag() {
-        let f = 'flag{Th15_FL4G_1S_P0PP1N}';
+    function t() {
+        let c = ['f', '}', 'a', 1, '_', 'T', 'h', 'P', 'N', 'S', 4, 'F', 'g', 5, 'N', '{', 'l', 0, 'P'];
+        let c3 = c[0] + c[16] + c[2] + c[12] + c[15];
+        let c0 = c[17] + c[7] + c[7] + c[16] + c[14] + c[1];
+        let c9 = c[12] + c[4] + c[3] + c[9] + c[4] + c[18];
+        let c2 = c[5] + c[6] + c[3] + c[13] + c[4] + c[11] + c[3] + c[10];
+        document.getElementById('f').innerHTML = c3 + c2 + c9 + c0;
     }
 
 </script>
