@@ -1,0 +1,29 @@
+{
+  "name": "gateway-ctf-web",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start4": "nodemon --exec babel-node ./04-get-my-dl/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EatonChips/gateway-ctf-web.git"
+  },
+  "author": "Adam Eaton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EatonChips/gateway-ctf-web/issues"
+  },
+  "homepage": "https://github.com/EatonChips/gateway-ctf-web#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0"
+  }
+}
