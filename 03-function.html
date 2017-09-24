@@ -1,0 +1,40 @@
+<!--
+Author: Adam Eaton
+Created: Saturday, September 23rd 2017, 6:54:47 pm
+File Name: 03-function.html
+-->
+
+<html>
+
+<body>
+    <center>
+        <input type="password" placeholder="Password" id="pass" />
+        <br />
+        <button type="submit" onclick="testLogin()">Show Flag</button>
+        <br />
+        <br />
+        <span id='flag' />
+    </center>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+<script>
+    window.onload = renderFlag;
+
+    function testLogin() {
+        let hash = 'b60d8391fadee3760bdaccd8a17daa9d3da70cadb888f5a11e63d3ef64a031f7';
+        console.log(CryptoJS.SHA256('ThisPasswordIsUncrackableBOIIIIII').toString(CryptoJS.enc.Hex))
+        let pass = document.getElementById('pass').value;
+        if (CryptoJS.SHA256(pass).toString(CryptoJS.enc.Hex) === hash)
+            renderFlag();
+        else
+            document.getElementById('flag').innerHTML = 'Incorrect Password';
+    }
+
+    function renderFlag() {
+        let f = 'flag{Th15_FL4G_1S_P0PP1N}';
+    }
+
+</script>
+
+</html>
