@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start4": "nodemon --exec babel-node ./04-get-my-dl/app.js",
-    "start5": "nodemon --exec babel-node ./05-i-love-eating-cookies/app.js"
+    "dev2": "nodemon --exec babel-node ./02-no-comment/app.js",
+    "dev3": "nodemon --exec babel-node ./03-dysfunctional/app.js",
+    "dev4": "nodemon --exec babel-node ./04-get-my-dl/app.js",
+    "dev5": "nodemon --exec babel-node ./05-i-love-eating-cookies/app.js"
   },
   "repository": {
     "type": "git",

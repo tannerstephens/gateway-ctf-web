@@ -21,3 +21,4 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port);
+console.log('Challenge 4 Running... on port ' + port);

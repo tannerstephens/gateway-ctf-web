@@ -7,19 +7,11 @@ let port = 4084;
 
 app.use(cookieParser());
 
-// app.use((req, res, next) => {
-//     let c = req.cookies.user;
-//     if (c === undefined) {
-//         res.cookie('user', 'notAdmin')
-//     }
-//     next();
-// });
-
 app.get('/*', (req, res) => {
     let c = req.cookies.admin;
     if (c === undefined) {
         res.cookie('admin', false).sendFile(__dirname + '/index.html');
-    } else if (req.cookies.admin === 'true') {
+    } else if (c === 'true') {
         res.sendFile(__dirname + '/flag.html');
     } else {
         res.sendFile(__dirname + '/index.html');
@@ -27,3 +19,4 @@ app.get('/*', (req, res) => {
 });
 
 app.listen(port);
+console.log('Challenge 5 Running... on port ' + port);
