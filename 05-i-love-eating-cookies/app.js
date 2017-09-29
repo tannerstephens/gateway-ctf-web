@@ -1,3 +1,10 @@
+/**
+ * Author: Adam Eaton
+ * Created: Saturday, September 23rd 2017, 9:23:13 pm
+ * File Name: app.js
+ * Challenge 5 - I love eating cookies
+ */
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
