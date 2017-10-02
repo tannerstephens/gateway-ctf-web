@@ -1,0 +1,15 @@
+{
+    "apps": [{
+        "name": "02",
+        "script": "/02-no-comment/app.js"
+    }, {
+        "name": "03",
+        "script": "/03-dysfunctonal/app.js"
+    }, {
+        "name": "04",
+        "script": "/04-get-my-dl/app.js"
+    }, {
+        "name": "05",
+        "script": "/05-i-love-eating-cookies/app.js"
+    }]
+}
