@@ -5,9 +5,12 @@
  * Challenge 5 - I love eating cookies
  */
 
-import express from 'express';
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
+// import express from 'express';
+let express = require('express');
+// import bodyParser from 'body-parser';
+let bodyParser = require('body-parser');
+// import cookieParser from 'cookie-parser';
+let cookieParser = require('cookie-parser');
 
 let app = express();
 let port = 4084;

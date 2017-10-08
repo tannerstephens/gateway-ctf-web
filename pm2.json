@@ -1,15 +1,31 @@
 {
     "apps": [{
         "name": "02",
-        "script": "/02-no-comment/app.js"
+        "script": "./02-no-comment/app.js",
+        "watch": true,
+        "env": {
+            "production": true
+        }
     }, {
         "name": "03",
-        "script": "/03-dysfunctonal/app.js"
+        "script": "./03-dysfunctional/app.js",
+        "watch": true,
+        "env": {
+            "production": true
+        }
     }, {
         "name": "04",
-        "script": "/04-get-my-dl/app.js"
+        "script": "./04-get-my-dl/app.js",
+        "watch": true,
+        "env": {
+            "production": true
+        }
     }, {
         "name": "05",
-        "script": "/05-i-love-eating-cookies/app.js"
+        "script": "./05-i-love-eating-cookies/app.js",
+        "watch": true,
+        "env": {
+            "production": true
+        }
     }]
 }

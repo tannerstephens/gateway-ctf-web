@@ -5,8 +5,10 @@
  * Challenge 4 - Get my DL
  */
 
-import express from 'express';
-import bodyParser from 'body-parser';
+// import express from 'express';
+let express = require('express');
+// import bodyParser from 'body-parser';
+let bodyParser = require('body-parser');
 
 let port = 5007;
 let app = express();
