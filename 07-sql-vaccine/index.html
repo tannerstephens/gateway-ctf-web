@@ -1,0 +1,46 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <center>
+        <div id="container">
+            <h2>
+                Come get your vaccines
+                <br /> The water turns the frogs gay
+                <br /> I love injection
+            </h2>
+            <input type="text" placeholder="Username" id="user" />
+            <br />
+            <input type="password" placeholder="Password" id="pass" />
+            <br />
+            <button type="submit" onclick="login()">Show Flag</button>
+            <br />
+            <br />
+            
+        </div>
+    </center>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    function login() {
+        let d = {
+            user: document.getElementById('user').value,
+            pass: document.getElementById('pass').value
+        }
+        console.log(d);
+        $.post('/login',{
+                user: document.getElementById('user').value,
+                pass: document.getElementById('pass').value
+        }).done(res => {
+            console.log(res);
+        }).fail(err => {
+            console.log(err);
+        });
+    }
+</script>
+
+</html>
