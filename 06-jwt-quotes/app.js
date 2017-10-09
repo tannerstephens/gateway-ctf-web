@@ -1,6 +1,6 @@
 /**
  * Author: Adam Eaton
- * Created: Friday, October 8th 2017, 11:37:34 pm
+ * Created: Sunday, October 8th 2017, 11:37:34 pm
  * File Name: app.js
  * Challenge 6 - JWT Quotes
  */
