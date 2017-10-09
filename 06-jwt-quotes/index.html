@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <style>
+        #container {
+            padding: 10% 0;
+            max-width: 500px;
+        }
+
+        #users {
+            list-style-type: none;
+        }
+
+        .left {
+            width: 50%;
+            height: 100%;
+            float: left
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id='container'>
+            <h2>
+                JWT is bae.
+                <br /> Encoded JSON, Wow! Cool!
+                <br /> Better than tacos.
+            </h2>
+            <br />
+            <div class="left">
+                <h4>User:
+                    <span id='username' />
+                </h4>
+                <button type="submit" onclick="getQuote()">Get Quote</button>
+                <br />
+                <br />
+                <span id='quote' />
+            </div>
+            <center>
+                <h4>Users</h4>
+            </center>
+            <span id='users' />
+        </div>
+    </center>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    window.onload = getUsers;
+    function getUsers() {
+        $.ajax({
+            type: "GET",
+            url: '/getUserInfo',
+            beforeSend: xhr => {
+                xhr.setRequestHeader("Authorization", localStorage.getItem("jwt"));
+            }
+        }).done(res => {
+            localStorage.setItem('jwt', res.jwt);
+            let users = JSON.parse(atob(res.jwt.split('.')[1]));
+
+            document.getElementById('username').innerHTML = users.user;
+
+            let userListHtml = document.createElement('ul');
+            users.users.forEach(user => {
+                let i = document.createElement('li');
+                i.appendChild(document.createTextNode(user));
+                userListHtml.appendChild(i);
+            });
+            document.getElementById('users').appendChild(userListHtml);
+        }).fail(err => {
+            console.log(err);
+        });
+    }
+
+    function getQuote() {
+        $.ajax({
+            type: "GET",
+            url: '/getQuote',
+            beforeSend: xhr => {
+                xhr.setRequestHeader("Authorization", localStorage.getItem("jwt"));
+            }
+        }).done(res => {
+            document.getElementById('quote').innerHTML = res.quote;
+        }).fail(err => {
+            console.log(err);
+        })
+    }
+
+</script>
+
+</html>
