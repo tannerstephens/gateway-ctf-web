@@ -11,7 +11,8 @@ COPY . .
 
 # Install app dependencies
 ENV NPM_CONFIG_LOGLEVEL warn
-RUN npm install express body-parser cookie-parser
+RUN npm install
+# RUN npm install express body-parser cookie-parser
 
 # Show current folder structure in logs
 RUN ls -al #-R

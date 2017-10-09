@@ -27,5 +27,12 @@
         "env": {
             "production": true
         }
+    }, {
+        "name": "06",
+        "script": "./06-jwt-quotes/app.js",
+        "watch": true,
+        "env": {
+            "production": true
+        }
     }]
 }
