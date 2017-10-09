@@ -1,5 +1,16 @@
 # gateway-ctf-web
 
+## Installation
+So, you wanna install this docker image.
+
+Run `npm install` in root the directory
+
+Run `sudo docker build -t gw-web .` in the root directory
+
+Run `sudo docker run gw-web` in the root directory. 
+
+Woah, all these challenges in one docker image. OwO
+
 ## Intro
 Good job reading the intro, father would be proud.
 

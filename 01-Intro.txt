@@ -1,6 +1,16 @@
-What is web.
+So you wanna be a web master. First you must ask: What is web?
 
 Web exploits are weird
 Javascript and php
 Who likes SIG.com
 
+Remember to use a modern browser, like Chrome or Firefox so you can 'Inspect Elements'.
+The 'Elements' tab shows the html elements, so you don't need to look through a ton of code to find the specific element you are looking for.
+The 'Console' tab is a Javascript interpreter. This allows you to call JS functions, variables and other cool frontend stuff.
+The 'Sources' tab shows all the files included in the application, images, css files, javascript files, etc. All organized by their location.
+The 'Network' tab shows requests made from the client. This includes ajax requests and external resources, shown in the sources tab, that are loaded by the page.
+The 'Application' tab allows you to view and edit Local Storage, Session variables, Cookies, and a ton more. 
+
+Become familiar with <a href="https://www.owasp.org/index.php/Category:Attack">OWASP</a>. This will give you a decent background in the most common attacks and how they work. These challenges are meant to be for beginners so don't worry if you aren't sure where to go at first. That's how all ctfs are.
+
+Bingo Bango, you are now a web application security expert. Go hack some websites! (M57 does not endorse unsolicited security audits of sites you do not have explicit permission to test, and will not be held accountable for any damages caused. All information is strictly educational.)
