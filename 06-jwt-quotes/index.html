@@ -51,7 +51,7 @@
     function getUsers() {
         $.ajax({
             type: "GET",
-            url: '/getUserInfo',
+            url: 'https://acmsigsec.mst.edu/ctf/web/6/getUserInfo',
             beforeSend: xhr => {
                 xhr.setRequestHeader("Authorization", localStorage.getItem("jwt"));
             }
@@ -76,7 +76,7 @@
     function getQuote() {
         $.ajax({
             type: "GET",
-            url: '/getQuote',
+            url: 'https://acmsigsec.mst.edu/ctf/web/6/getQuote',
             beforeSend: xhr => {
                 xhr.setRequestHeader("Authorization", localStorage.getItem("jwt"));
             }
