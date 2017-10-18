@@ -5,9 +5,7 @@
  * Challenge 4 - Get my DL
  */
 
-// import express from 'express';
 let express = require('express');
-// import bodyParser from 'body-parser';
 let bodyParser = require('body-parser');
 
 let port = 5007;
@@ -16,7 +14,10 @@ let app = express();
 app.use(bodyParser.json());
 
 app.get('/file', (req, res) => {
-    res.download(__dirname + '/' + req.param('f'));
+    if (req.param('f').includes('..'))
+        res.send('Nice try');
+    else
+        res.download(__dirname + '/' + req.param('f'));
 });
 
 app.get('/', (req, res) => {
