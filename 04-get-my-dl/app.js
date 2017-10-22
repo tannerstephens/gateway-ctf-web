@@ -14,7 +14,7 @@ let app = express();
 app.use(bodyParser.json());
 
 app.get('/file', (req, res) => {
-    if (req.param('f').includes('..'))
+    if (req.param('f').includes('..') || req.param('f').includes('%'))
         res.send('Nice try');
     else
         res.download(__dirname + '/' + req.param('f'));
