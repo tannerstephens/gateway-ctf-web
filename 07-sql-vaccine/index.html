@@ -1,46 +1,84 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
+    <style>
+        #container {
+            margin-top: 13%;
+        }
+        #users {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
     <center>
         <div id="container">
-            <h2>
-                Come get your vaccines
-                <br /> The water turns the frogs gay
-                <br /> I love injection
-            </h2>
-            <input type="text" placeholder="Username" id="user" />
-            <br />
-            <input type="password" placeholder="Password" id="pass" />
-            <br />
-            <button type="submit" onclick="login()">Show Flag</button>
-            <br />
-            <br />
-            
+            <div class="col-md-6 offset-md-1 col-xs-12 offset-xs-0">
+                <div class="row">
+                    <div class="col">
+                        <h3>
+                            Come get your vaccines
+                            <br /> The water turns the frogs gay
+                            <br /> I love injection
+                        </h3>
+                        <input type="text" placeholder="Username" id="user" />
+                        <br />
+                        <input type="password" placeholder="Password" id="pass" />
+                        <br />
+                        <br />
+                        <button type="submit" onclick="login()">Validate Credentials</button>
+                    </div>
+                    <div class="col">
+                        Signed in as: <span id="signedInUser"></span>
+                        <br />
+                        <br />
+                        <h5>
+                            Users
+                        </h5>
+                        <ul id="users">
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </center>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script>
     function login() {
-        let d = {
+        let u = {
             user: document.getElementById('user').value,
             pass: document.getElementById('pass').value
         }
-        console.log(d);
-        $.post('/login',{
-                user: document.getElementById('user').value,
-                pass: document.getElementById('pass').value
-        }).done(res => {
-            console.log(res);
-        }).fail(err => {
+        
+        $.post('/login', u)
+            .done(res => {
+                console.log(res);
+                document.getElementById('signedInUser').textContent = u.user;
+            }).fail(err => {
+                console.log(err);
+            });
+    }
+
+    $.get('/users')
+        .done(res => {
+            let userList = document.getElementById('users');
+            res.forEach(u => {
+                let li = document.createElement('li');
+                li.textContent = u.user;
+                userList.appendChild(li);
+            });
+        })
+        .fail(err => {
             console.log(err);
         });
-    }
 </script>
 
 </html>

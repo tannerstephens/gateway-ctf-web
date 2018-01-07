@@ -34,5 +34,12 @@
         "env": {
             "production": true
         }
+    }, {
+        "name": "07",
+        "script": "./07-sql-vaccine/app.js",
+        "watch": true,
+        "env": {
+            "production": true
+        }
     }]
 }
