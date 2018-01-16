@@ -22,16 +22,19 @@
                     <div class="col">
                         <h3>
                             Come get your vaccines
-                            <br /> The water turns the frogs gay
-                            <br /> I love injection
+                            <br /> Please comment on my design
+                            <br /> I love injections 💉
                         </h3>
-                        <input type="text" placeholder="Username" id="user" />
-                        <br />
-                        <input type="password" placeholder="Password" id="pass" />
-                        <br />
-                        <br />
-                        <button type="submit" onclick="login()">Validate Credentials</button>
+                        <form>
+                            <input class='form-control' type="text" placeholder="Username" id="user" />
+                            <br />
+                            <input class='form-control' type="password" placeholder="Password" id="pass" />
+                            <br />
+                            <br />
+                            <button type='button' onclick="login()">Validate Credentials</button>
+                        </form>
                     </div>
+
                     <div class="col">
                         Signed in as: <span id="signedInUser"></span>
                         <br />
@@ -61,10 +64,27 @@
         $.post('/login', u)
             .done(res => {
                 console.log(res);
-                document.getElementById('signedInUser').textContent = u.user;
+                setError(false, false);
+                document.getElementById('signedInUser').textContent = res[0].user;
             }).fail(err => {
-                console.log(err);
+                console.log(err.responseJSON);
+                setError(err.responseJSON.user, err.responseJSON.pass);
             });
+    }
+
+    function setError(userError, passError) {
+        let userInput = document.getElementById('user');
+        let passInput = document.getElementById('pass');
+
+        if (userError) 
+            userInput.classList.add('is-invalid');    
+        else
+            userInput.classList.remove('is-invalid');
+
+        if (passError)
+            passInput.classList.add('is-invalid');
+        else
+            passInput.classList.remove('is-invalid');
     }
 
     $.get('/users')

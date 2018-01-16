@@ -5,12 +5,11 @@
  * Challenge 7 - SQL Vaccine
  */
 
-// import express from 'express';
 let express = require('express');
 let bodyParser = require('body-parser');
 let sqlite3 = require('sqlite3');
 
-let port = 4719;
+const PORT = 4719;
 let app = express();
 
 app.use(bodyParser.urlencoded());
@@ -47,8 +46,16 @@ app.use('/login', (req, res) => {
     let user = req.body.user.toLowerCase();
     let pass = req.body.pass.toLowerCase();
 
+    // Example Injection String: flag'---
     db.all('SELECT * FROM users WHERE user=\'' + user + '\' AND pass=\'' + pass + '\'', (err, row) => {
-        res.json(row);
+        // We don't want rows to be added or removed
+        if (user.indexOf('delete') > -1 || user.indexOf('insert') > -1 || user.indexOf('update') > -1 || user.indexOf('into') > -1 ||
+            pass.indexOf('delete') > -1 || pass.indexOf('insert') > -1 || pass.indexOf('update') > -1 || pass.indexOf('into') > -1)
+            res.status(500).json({ message: 'Bruh...' });
+        else if (row.length == 0)
+            res.status(500).json({ 'user': user == '', 'pass': pass == '' });            
+        else 
+            res.json(row);
     });
 });
 
@@ -59,5 +66,5 @@ app.use('/users', (req, res) => {
     });
 });
 
-app.listen(port);
-console.log('Challenge 7 Running... on port ' + port);
+app.listen(PORT);
+console.log('Challenge 7 Running... on port ' + PORT);
