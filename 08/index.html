@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+    <style>
+        #container {
+            margin-top: 13%;
+        }
+        #users {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id="container">
+            <div class="col-md-6 offset-md-1 col-xs-12 offset-xs-0">
+                <div class="row">
+                    <div class="col">
+                        <h3>
+                            Come get your vaccines
+                            <br /> Please comment on my design
+                            <br /> I love injections 💉
+                        </h3>
+                        <form>
+                            <input class='form-control' type="text" placeholder="Username" id="user" />
+                            <br />
+                            <input class='form-control' type="password" placeholder="Password" id="pass" />
+                            <br />
+                            <br />
+                            <button type='button' onclick="login()">Validate Credentials</button>
+                        </form>
+                    </div>
+
+                    <div class="col">
+                        Signed in as: <span id="signedInUser"></span>
+                        <br />
+                        <br />
+                        <h5>
+                            Users
+                        </h5>
+                        <ul id="users">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<script>
+    function login() {
+        let u = {
+            user: document.getElementById('user').value,
+            pass: document.getElementById('pass').value
+        }
+        
+        $.post('/login', u)
+            .done(res => {
+                console.log(res);
+                setError(false, false);
+                document.getElementById('signedInUser').textContent = res[0].user;
+            }).fail(err => {
+                console.log(err.responseJSON);
+                setError(err.responseJSON.user, err.responseJSON.pass);
+            });
+    }
+
+    function setError(userError, passError) {
+        let userInput = document.getElementById('user');
+        let passInput = document.getElementById('pass');
+
+        if (userError) 
+            userInput.classList.add('is-invalid');    
+        else
+            userInput.classList.remove('is-invalid');
+
+        if (passError)
+            passInput.classList.add('is-invalid');
+        else
+            passInput.classList.remove('is-invalid');
+    }
+
+    $.get('/users')
+        .done(res => {
+            let userList = document.getElementById('users');
+            res.forEach(u => {
+                let li = document.createElement('li');
+                li.textContent = u.user;
+                userList.appendChild(li);
+            });
+        })
+        .fail(err => {
+            console.log(err);
+        });
+</script>
+
+</html>
