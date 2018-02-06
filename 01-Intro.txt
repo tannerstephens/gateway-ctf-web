@@ -2,7 +2,7 @@ So you wanna be a web master. First you must ask: What is web?
 
 Web exploits are weird
 Javascript and php
-Who likes SIG.com
+Do not try at home
 
 Remember to use a modern browser, like Chrome or Firefox so you can 'Inspect Elements'.
 The 'Elements' tab shows the html elements, so you don't need to look through a ton of code to find the specific element you are looking for.
