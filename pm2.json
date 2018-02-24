@@ -1,45 +1,18 @@
 {
     "apps": [{
         "name": "02",
-        "script": "./02-no-comment/app.js",
-        "watch": true,
-        "env": {
-            "production": true
-        }
+        "script": "./02-no-comment/app.js"
     }, {
         "name": "03",
-        "script": "./03-dysfunctional/app.js",
-        "watch": true,
-        "env": {
-            "production": true
-        }
+        "script": "./03-dysfunctional/app.js"
     }, {
         "name": "04",
-        "script": "./04-get-my-dl/app.js",
-        "watch": true,
-        "env": {
-            "production": true
-        }
+        "script": "./04-get-my-dl/app.js"
     }, {
         "name": "05",
-        "script": "./05-i-love-eating-cookies/app.js",
-        "watch": true,
-        "env": {
-            "production": true
-        }
+        "script": "./05-i-love-eating-cookies/app.js"
     }, {
         "name": "06",
-        "script": "./06-jwt-quotes/app.js",
-        "watch": true,
-        "env": {
-            "production": true
-        }
-    }, {
-        "name": "07",
-        "script": "./07-sql-vaccine/app.js",
-        "watch": true,
-        "env": {
-            "production": true
-        }
+        "script": "./06-jwt-quotes/app.js"
     }]
 }
