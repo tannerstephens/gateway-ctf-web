@@ -1,0 +1,25 @@
+# FROM keymetrics/pm2
+# FROM node:carbon
+FROM ubuntu:14.04
+
+# RUN apt-get update
+# RUN apt-get install gcc
+# RUN apt-get install g++
+RUN apt-get update && \
+    apt-get -y install curl && \
+    apt-get -y install git && \
+    apt-get -y install wget && \
+    curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && \
+    apt-get install --yes nodejs
+
+RUN npm install -g pm2
+
+ENV NPM_CONFIG_LOGLEVEL info
+
+COPY . .
+
+RUN npm install
+
+# CMD [ "pm2-runtime", "start", "pm2.json" ]
+
+CMD pm2 start --no-daemon pm2.json
