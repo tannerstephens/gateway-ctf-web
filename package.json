@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev2": "nodemon --exec babel-node ./02-no-comment/app.js",
-    "dev3": "nodemon --exec babel-node ./03-dysfunctional/app.js",
-    "dev4": "nodemon --exec babel-node ./04-get-my-dl/app.js",
-    "dev5": "nodemon --exec babel-node ./05-i-love-eating-cookies/app.js",
-    "dev6": "nodemon --exec babel-node ./06-jwt-quotes/app.js",
-    "dev7": "nodemon --exec babel-node ./07-sql-vaccine/app.js"
+    "dev2": "nodemon ./02-no-comment/app.js",
+    "dev3": "nodemon ./03-dysfunctional/app.js",
+    "dev4": "nodemon ./04-get-my-dl/app.js",
+    "dev5": "nodemon ./05-i-love-eating-cookies/app.js",
+    "dev6": "nodemon ./06-jwt-quotes/app.js",
+    "dev7": "nodemon ./07-sql-vaccine/app.js"
   },
   "repository": {
     "type": "git",
@@ -27,10 +27,5 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
     "jsonwebtoken": "^8.0.1"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-loader": "^6.3.2",
-    "babel-preset-es2015": "^6.22.0"
   }
 }
