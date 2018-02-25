@@ -14,5 +14,8 @@
     }, {
         "name": "06",
         "script": "./06-jwt-quotes/app.js"
+    }, {
+        "name": "07",
+        "script": "./07-sql-vaccine/app.js"
     }]
 }
